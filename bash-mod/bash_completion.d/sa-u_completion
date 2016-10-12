@@ -1,0 +1,51 @@
+#!/bin/bash
+#  Completion for u:
+#
+#  u ping [machine-group]
+#  u execute [machine-group] [string]
+#  u remote-config [machine-group] [puppet-file]
+#  u echo [machine-group]
+#  u help
+#
+_u() {
+    local cur prev prev2 prev3 opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    prev2="${COMP_WORDS[COMP_CWORD-2]}"
+    prev3="${COMP_WORDS[COMP_CWORD-3]}"
+    opts="ping execute remote-config echo help"
+
+    case "${prev}" in
+        "ping" | "execute" | "remote-config" | "echo")
+            local running
+            running=$(grep "^-" "$HOME/.u/hosts"| sed 's/^-//')
+            COMPREPLY=( $(compgen -W "${running}" -- "${cur}") )
+            return 0
+            ;;
+        "help")
+            return 0
+            ;;
+        *)
+            case "${prev2}" in
+                "ping" | "execute" | "echo")
+                    return 0
+                    ;;
+                "remote-config")
+                    COMPREPLY=( $(compgen -f -- "${cur}") )
+                    return 0
+                    ;;
+                *)
+                    case "$prev3" in
+                        "remote-config")
+                            return 0
+                            ;;
+                    esac
+                    ;;
+            esac
+            ;;
+    esac
+
+    COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+}
+complete -F _u u

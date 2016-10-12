@@ -1,0 +1,41 @@
+#!/bin/bash
+# Conjunto de chorradicas y experimentos para hacerme esto mas comodo
+#
+# Autor: 604409
+
+if uname -a | grep SunOS > /dev/null
+then
+	alias ls="\ls"
+fi
+export MOD=1
+if [ -n "$MOD" ]; then
+
+    # Carga de colecciones de comandos en otros archivos
+    # shellcheck source=/home/guillermo/.bash-mod/uni
+    . "$HOME/.bash-mod/uni"    # Chorradas de la uni
+    # shellcheck source=/home/guillermo/.bash-mod/alias
+    . "$HOME/.bash-mod/alias"  # Alias
+    # shellcheck source=/home/guillermo/.bash-mod/colors
+    . "$HOME/.bash-mod/colors" # Colores
+    # shellcheck source=/home/guillermo/.bash-mod/rpi
+    . "$HOME/.bash-mod/rpi"    # Raspberry
+    # shellcheck source=/home/guillermo/.bash-mod/emacs
+    . "$HOME/.bash-mod/emacs"  # Emacs
+    # shellcheck source=/home/guillermo/.bash-mod/prompt
+    . "$HOME/.bash-mod/prompt" # Prompt
+    # shellcheck source=/home/guillermo/.bash-mod/youtube-dl
+    . "$HOME/.bash-mod/youtube-dl" # Prompt
+    # shellcheck source=/home/guillermo/.bash-mod/vagrant
+    . "$HOME/.bash-mod/vagrant" # Prompt
+
+    # Adiciones al PATH y a otras variables
+    # Directorio actual
+    export PATH="$HOME/bin:$PATH"
+    # export PATH=".:$PATH"
+    export PATH="$HOME/.cabal/bin:$PATH"
+
+    # Otras variables interesantes
+    export HISTCONTROL=ignoreboth # Evitar duplicados en la historia de BASH
+    PROMPT_COMMAND='history -a' # Guardar el historial en cada ejecucion de comando
+
+fi

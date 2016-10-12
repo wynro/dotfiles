@@ -1,0 +1,12 @@
+#!/bin/bash
+# Coleccion de cosas de la uni
+
+# Cuenta de la universidad
+export CUENTA_UNI="a604409"
+
+# Servidores de la uni
+export HENDRIX_HOST="hendrix-ssh.cps.unizar.es"
+export LAB000_HOST="lab000.cps.unizar.es"
+export HENDRIX="$CUENTA_UNI@$HENDRIX_HOST"
+export LAB000="$CUENTA_UNI@$LAB000_HOST"
+export ASIS="/misc/alumnos/as2/as22015/a604409/trabajo"

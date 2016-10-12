@@ -1,0 +1,6 @@
+#!/bin/bash
+# Author: Guillermo Robles
+#
+# Vagrant configuration
+
+export VAGRANT_DEFAULT_PROVIDER=libvirt

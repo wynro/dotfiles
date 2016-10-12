@@ -1,0 +1,46 @@
+#!/bin/bash
+
+EMACS_D="$HOME/.emacs.d"
+
+em () {
+    if [ "$1" = "" ]; then
+        emacsclient -c -a "" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+    else
+        emacsclient -c -a "" "$@" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+    fi
+}
+
+em_nw () {
+    if [ "$1" = "" ]; then
+        emacsclient -nw -c -a "" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+    else
+        emacsclient -nw -c -a "" "$@" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+    fi
+}
+
+em_kill () {
+    pgrep emacs | xargs kill -15
+}
+
+
+crop_file () {
+    TMP=$(mktemp -t emacs.XXXXXX)
+    head <"$1" > "$TMP" && mv "$TMP" "$1"
+    rm "$TMP" 2>/dev/null
+}
+
+em_games () {
+    crop_file "${EMACS_D}/games/tetris-scores"
+    crop_file "${EMACS_D}/games/snake-scores"
+    crop_file "${EMACS_D}/games/bubbles-default-2-10-10-scores"
+}
+alias em_tetris=""
+
+em_r () {
+    kill -9 "$(pgrep emacs)"
+    emacs --daemon &
+}
+
+alias dunnet="emacs -batch -l dunnet"
+
+export EDITOR=em

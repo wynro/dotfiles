@@ -1,0 +1,128 @@
+#!/bin/sh
+#
+# Coleccion de todos mis alias (aliases?)
+#
+
+alias virsh='virsh -c qemu:///system'
+
+# Editores minimalistas
+alias nano="vim"
+alias pico="vim"
+
+# Used commands
+alias e="ed"
+alias esed="sed -r"
+alias f="find"
+alias filelist="find . > filelist"
+alias g="grep"
+alias got="git"
+alias gt="git"
+alias gti="git"
+alias gz="gzip"
+alias l="ls -CF"
+alias q="exit"
+alias quit="exit"
+alias s="sed"
+alias t="task"
+alias ugz="gunzip"
+
+# Games
+# Strike the earth!
+alias dw='$HOME/opt/df/df'
+alias h="hack"
+alias nh="nethack"
+
+newdir() {
+    if mkdir "$1"; then
+        if ! cd "$1"; then
+            echo "Permission error"
+        fi
+    fi
+}
+
+alias update-all="sudo apt-get update && sudo apt-get upgrade"
+alias apt-all="sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove && sudo apt-get autoclean"
+
+myip() {
+    if [ "$1" = "" ]; then
+        ifconfig wlp3s0 | grep 'inet addr' | sed 's/ *inet addr:\([^ ]*\).*/\1/'
+    else
+        ifconfig "$1" | grep 'inet addr' | sed 's/ *inet addr:\([^ ]*\).*/\1/'
+    fi
+}
+
+# Deberia comprobar esto...
+alias mypublicip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+play() {
+    if [ "$#" -lt 1 ]; then
+        DIR="."
+    else
+        DIR="$*"
+    fi
+    vlc "${DIR}" >/dev/null 2>&1 &
+}
+
+# Find the path to MTP/PTP connected device by USB ID
+find_path_by_usbid() {
+    lsusboutput="$(lsusb -d "$1" | head -n1)"
+    usbbus="${lsusboutput% Device*}"
+    usbbus="${usbbus#Bus }"
+    usbdevice="${lsusboutput%%:*}"
+    usbdevice="${usbdevice#*Device }"
+
+    # Media Transfer Protocol
+    if [ -d "$XDG_RUNTIME_DIR" ]; then
+        runtimedir="$XDG_RUNTIME_DIR"
+    else
+        runtimedir="/run/user/$USER"
+    fi
+    MtpPath="$runtimedir/gvfs/mtp:host=%5Busb%3A${usbbus}%2C${usbdevice}%5D"
+    # Picture Transfer Protocol
+    PtpPath="$runtimedir/gvfs/gphoto2:host=%5Busb%3A${usbbus}%2C${usbdevice}%5D"
+
+    if [ -d "$MtpPath" ]; then
+        echo "$MtpPath"
+    elif [ -d "$PtpPath" ]; then
+        echo "$PtpPath"
+    else
+        echo "Error: File or directory was not found."
+    fi
+}
+
+# Utilizar regex extendidas por defecto
+# Imbecil, esto da problemas con los scripts del sistema, no lo uses
+# alias grep="grep -E"
+
+# Abrir directorio actual en navegador de ficheros
+nd() {
+    if [ "$1" = "" ]; then
+        DIR="."
+    else
+        DIR="$1"
+    fi
+    if [ "$DESKTOP_SESSION" = "mate" ]; then
+        caja "$DIR"
+    else
+        nautilus "$DIR"
+    fi
+}
+
+alias morse="morse -s"
+
+alias dcfldd="dcfldd statusinterval=16"
+
+alias ..='cd ..'
+alias ..1='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+alias ..6='cd ../../../../../..'
+alias ..7='cd ../../../../../../..'
+alias ..8='cd ../../../../../../../..'
+alias ..9='cd ../../../../../../../../..'
+
+alias df='df -hT'
+
+alias shellcheck='shellcheck -x'
