@@ -54,4 +54,5 @@ if [ ! -f "$HOME/.config/i3status/config" ]; then
 else
     echo "The file $HOME/.config/i3status/config already exists, link not created"
 fi
-
+# dm config file
+check_file_and_create_link "dmrc"
