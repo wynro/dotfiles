@@ -56,3 +56,6 @@ else
 fi
 # dm config file
 check_file_and_create_link "dmrc"
+
+# Git config file
+check_file_and_create_link "gitconfig"

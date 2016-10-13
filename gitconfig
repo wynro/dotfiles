@@ -1,0 +1,36 @@
+[user]
+	name = Guillermo Robles
+	email = guillerobles1995@gmail.com
+[core]
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+	editor = emacs
+	autocrlf = input
+[push]
+	default = matching
+[alias]
+	a = add
+	aa = add --all
+	aco = commit -a
+	acom = commit -a -m
+	amend = commit -a --amend
+	b = branch
+	ch = checkout
+	co = commit
+	cob = checkout -b
+	com = commit -m
+	ec = config --global -e
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ls-ignored = ls-files --others -i --exclude-standard
+	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+	ss = status --short
+	st = status
+	story = log --oneline --decorate --graph --all
+	story2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	undo = reset HEAD~1 --mixed
+	unstage = reset HEAD --
+	visual = !gitk
+  gui = !gitk
+  merge-to = !~/bin/merge-to "$1"
+[branch]
+	autosetuprebase = always
+	autosetupmerge = always
