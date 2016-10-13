@@ -207,3 +207,6 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioMicMute exec /home/guillermo/bin/toggle_mic
+
+# Print screen
+bindsym Print exec ksnapshot
