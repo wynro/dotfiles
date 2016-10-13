@@ -2,7 +2,7 @@ general {
   output_format = "i3bar"
   colors = true
   color_separator = "#0000FF"
-  interval = 5
+  interval = 1
 }
 
 
