@@ -163,6 +163,9 @@ bar {
 # Change wallpaper
 exec feh --bg-scale /home/guillermo/Pictures/Wallpapers/portal-wallpaper-1.png
 
+# Add Compose Key
+exec setxkbmap -option compose:ralt
+
 # Some random keybindings
 bindsym $mod+Shift+f exec firefox
 
