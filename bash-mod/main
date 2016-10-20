@@ -29,6 +29,8 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/vagrant" # Vagrant
     # shellcheck source=nuclear-throne
     . "$HOME/.bash-mod/nuclear-throne" # Nuclear Throne game
+    # shellcheck source=idea
+    . "$HOME/.bash-mod/idea" # IntelliJ IDEA
 
     # Adiciones al PATH y a otras variables
     # Directorio actual
