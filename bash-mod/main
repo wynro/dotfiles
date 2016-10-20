@@ -24,9 +24,9 @@ if [ -n "$MOD" ]; then
     # shellcheck source=/home/guillermo/.bash-mod/prompt
     . "$HOME/.bash-mod/prompt" # Prompt
     # shellcheck source=/home/guillermo/.bash-mod/youtube-dl
-    . "$HOME/.bash-mod/youtube-dl" # Prompt
+    . "$HOME/.bash-mod/youtube-dl" # Youtube-dl
     # shellcheck source=/home/guillermo/.bash-mod/vagrant
-    . "$HOME/.bash-mod/vagrant" # Prompt
+    . "$HOME/.bash-mod/vagrant" # Vagrant
 
     # Adiciones al PATH y a otras variables
     # Directorio actual
