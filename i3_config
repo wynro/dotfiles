@@ -194,6 +194,10 @@ exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/emacs; workspace 1'
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1'
 exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1'
 
+# workspace 10 output VGA1
+
+# exec xrandr | grep -q "VGA1 connected" && xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
+
 # Activate multimedia keys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
