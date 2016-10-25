@@ -166,6 +166,9 @@ exec feh --bg-scale /home/guillermo/Pictures/Wallpapers/portal-wallpaper-1.png
 # Add Compose Key
 exec setxkbmap -option compose:ralt
 
+# Turn off Bluetooth
+exec bluetooth off
+
 # Some random keybindings
 bindsym $mod+Shift+f exec firefox
 
