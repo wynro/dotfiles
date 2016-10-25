@@ -24,6 +24,7 @@
 	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	ss = status --short
 	st = status
+	ts = status
 	story = log --oneline --decorate --graph --all
 	story2 = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	undo = reset HEAD~1 --mixed
