@@ -25,6 +25,7 @@ alias quit="exit"
 alias s="sed"
 alias t="task"
 alias ugz="gunzip"
+alias ghistory="history | grep"
 
 # Games
 # Strike the earth!
