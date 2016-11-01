@@ -1,3 +1,4 @@
 [submodule "emacs.d"]
-	  path = emacs.d
-    url = git@github.com/wynro/.emacs.d
+    path = emacs.d
+    url = git@github.com:wynro/.emacs.d
+    branch = master
