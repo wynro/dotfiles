@@ -30,8 +30,10 @@
 	undo = reset HEAD~1 --mixed
 	unstage = reset HEAD --
 	visual = !gitk
-  gui = !gitk
-  merge-to = !~/bin/merge-to "$1"
+	gui = !gitk
+	merge-to = !~/bin/merge-to "$1"
+	submodule-init=submodule update --init --recursive --remote
+	submodule-update=submodule update --recursive --remote
 [branch]
 	autosetuprebase = always
 	autosetupmerge = always
