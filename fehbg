@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-scale '/home/guillermo/Pictures/Wallpapers/portal-wallpaper-1.png' 
