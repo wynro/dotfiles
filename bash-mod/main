@@ -31,6 +31,8 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/nuclear-throne" # Nuclear Throne game
     # shellcheck source=idea
     . "$HOME/.bash-mod/idea" # IntelliJ IDEA
+    # shellcheck source=skype
+    . "$HOME/.bash-mod/skype" # Skype
 
     # Adiciones al PATH y a otras variables
     # Directorio actual
