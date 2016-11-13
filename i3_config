@@ -161,7 +161,7 @@ bar {
 
 # My stuff
 # Change wallpaper
-exec feh --bg-scale /home/guillermo/Pictures/Wallpapers/portal-wallpaper-1.png
+exec feh --bg-scale /home/guillermo/Pictures/background.png
 
 # Add Compose Key
 exec setxkbmap -option compose:ralt
