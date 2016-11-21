@@ -127,3 +127,11 @@ alias ..9='cd ../../../../../../../../..'
 alias df='df -hT'
 
 alias shellcheck='shellcheck -x'
+
+validate_yaml() {
+  ruby -ryaml -e "YAML.load_file '$1'"
+}
+
+validate_erb() {
+  erb -P -x -T '-' $1 | ruby -c
+}
