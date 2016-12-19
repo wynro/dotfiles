@@ -172,6 +172,7 @@ exec bluetooth off
 # Some random keybindings
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+m exec emacs
+bindsym $mod+Shift+n exec nautilus
 
 # Create exit keybindings
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
