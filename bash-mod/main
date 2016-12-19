@@ -1,7 +1,7 @@
 #!/bin/bash
 # Conjunto de chorradicas y experimentos para hacerme esto mas comodo
 #
-# Autor: 604409
+# Autor: Guillermo Robles
 
 if uname -a | grep SunOS > /dev/null
 then
@@ -11,8 +11,6 @@ export MOD=1
 if [ -n "$MOD" ]; then
 
     # Carga de colecciones de comandos en otros archivos
-    # shellcheck source=/home/guillermo/.bash-mod/uni
-    . "$HOME/.bash-mod/uni"    # Chorradas de la uni
     # shellcheck source=/home/guillermo/.bash-mod/alias
     . "$HOME/.bash-mod/alias"  # Alias
     # shellcheck source=/home/guillermo/.bash-mod/colors
