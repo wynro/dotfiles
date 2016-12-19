@@ -173,6 +173,7 @@ exec bluetooth off
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+m exec emacs
 bindsym $mod+Shift+n exec nautilus
+bindsym $mod+Shift+v exec vlc ~/Music/
 
 # Create exit keybindings
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
