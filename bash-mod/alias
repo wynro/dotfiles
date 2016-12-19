@@ -135,3 +135,6 @@ validate_yaml() {
 validate_erb() {
   erb -P -x -T '-' $1 | ruby -c
 }
+
+alias now="date +%Y%m%0d-%H%M"
+alias today="date +%Y%m%0d"
