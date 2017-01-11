@@ -142,3 +142,7 @@ alias today="date +%Y%m%0d"
 alias remove-final-newline="perl -pi -e 'chomp if eof'"
 
 alias git="git-achievements"
+
+mydrive() {
+  (cd ~/Google-Drive/ && exec drive "$@")
+}
