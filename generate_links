@@ -1,40 +1,52 @@
 #!/bin/bash
 REPO_PATH="$HOME/dotfiles"
 
+# Check if a given directory exists in the $HOME, if not, create a
+# link from the given directory
+# Parameters:
+#  - $1: Directory to search in $HOME
+#  - $2: Name of the substitute
 check_directory_and_create_link() {
-    if [ ! -d "$HOME/.$1" ]; then
-        ln -s "$REPO_PATH/$1" "$HOME/.$1" &&
-            echo "Link to '$HOME/.$1' created"
+    if [ ! -d "$HOME/$1" ]; then
+        ln -s "$REPO_PATH/$2" "$HOME/$1" &&
+            echo "Link to '$HOME/$1' created"
     else
-        echo "The directory $HOME/.$1 already exists, link not created"
+        echo "The directory $HOME/$1 already exists, link not created"
     fi
 }
 
+# Check if a given file exists in the $HOME, if not, create a link
+# from the given file
+# Parameters:
+#  - $1: File to search in $HOME
+#  - $2: Name of the substitute
 check_file_and_create_link() {
-    if [ ! -f "$HOME/.$1" ]; then
-        ln -s "$REPO_PATH/$1" "$HOME/.$1" &&
-            echo "Link to '$HOME/.$1' created"
+    if [ ! -f "$HOME/$1" ]; then
+        ln -s "$REPO_PATH/$2" "$HOME/$1" &&
+            echo "Link to '$HOME/$1' created"
     else
-        echo "The file $HOME/.$1 already exists, link not created"
+        echo "The file $HOME/$1 already exists, link not created"
     fi
 }
 
 
 # Shell configuration
-check_file_and_create_link "profile"
+check_file_and_create_link ".profile" "profile"
 
 # Bash configuration
-check_file_and_create_link "bash_logout"
-check_file_and_create_link "bashrc"
-check_directory_and_create_link "bash-mod"
+check_file_and_create_link ".bash_logout" "bash_logout"
+check_file_and_create_link ".bashrc" "bashrc"
+check_directory_and_create_link ".bash-mod" "bash-mod"
 
 # Vim stuff
-check_file_and_create_link "viminfo"
-check_file_and_create_link "vimrc"
-check_directory_and_create_link "vim"
+check_file_and_create_link ".viminfo" "viminfo"
+check_file_and_create_link ".vimrc" "vimrc"
+check_directory_and_create_link ".vim" "vim"
 
 # Emacs stuff
-check_directory_and_create_link "emacs.d"
+check_directory_and_create_link ".emacs.d" "emacs.d"
+
+# bin directory
 
 # i3 stuff
 # i3 config
@@ -55,10 +67,10 @@ else
     echo "The file $HOME/.config/i3status/config already exists, link not created"
 fi
 # dm config file
-check_file_and_create_link "dmrc"
+check_file_and_create_link ".dmrc" "dmrc"
 
 # Git config file
-check_file_and_create_link "gitconfig"
+check_file_and_create_link ".gitconfig" "gitconfig"
 
 # Feh background config file
-check_file_and_create_link "fehbg"
+check_file_and_create_link ".fehbg" "fehbg"
