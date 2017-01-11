@@ -14,11 +14,13 @@
 	acom = commit -a -m
 	amend = commit -a --amend
 	b = branch
+	bad = bisect bad
 	ch = checkout
 	co = commit
 	cob = checkout -b
 	com = commit -m
 	ec = config --global -e
+	good = bisect good
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ls-ignored = ls-files --others -i --exclude-standard
 	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
