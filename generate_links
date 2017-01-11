@@ -47,6 +47,8 @@ check_directory_and_create_link ".vim" "vim"
 check_directory_and_create_link ".emacs.d" "emacs.d"
 
 # bin directory
+check_directory_and_create_link "bin" "bin"
+
 
 # i3 stuff
 # i3 config

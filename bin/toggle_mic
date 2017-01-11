@@ -1,0 +1,12 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Toggles microphone mode
+
+if amixer get Capture | grep '\[on\]' >/dev/null 2>&1; then
+  # Microhone on
+  amixer set Capture nocap >/dev/null 2>&1
+else
+  # Microphone off
+  amixer set Capture cap >/dev/null 2>&1
+fi

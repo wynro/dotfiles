@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read line; do
+    username=`echo "$line" | sed 's/.*\(a[0-9]\{6\}\).*/\1/'`
+    if [ "$username" == "$line" ]; then
+        echo "$line"
+    else
+        realname=`grep "^$username" "$HOME/.u/humans" | cut -d" " -f 2-`
+        echo "$line" | sed "s/$username/'$realname'/g"
+    fi
+done

@@ -1,0 +1,21 @@
+#!/bin/sh
+# shell script to prepend i3status with more stuff
+
+i3status | while :
+do
+        read line
+        #🔊: speaker
+        ram=`awk '/MemTotal/ {memtotal=$2}; /MemAvailable/ {memavail=$2}; END { printf("%.2f%", (100- (memavail / memtotal * 100))) }' /proc/meminfo`
+        volume=`amixer get Master | awk '/Mono\:/ {gsub(/[\[\]]/, ""); print $4}'`
+        if amixer get Master | grep '\[on\]' >/dev/null 2>&1; then
+          # Volume On
+          volume="🔊 $volume"
+        else
+          # Volume off
+          volume="🔇"
+        fi
+        echo "$line" |
+          sed "s/\[{/[{\"name\":\"free_ram\",\"markup\":\"none\",\"full_text\":\"RAM ${ram}\"},{/" |
+          sed "s/\[{/[{\"name\":\"volume\",\"markup\":\"none\",\"full_text\":\"${volume}\"},{/" || exit -1
+        # echo " ["name":"ram", "markup":"none","full_text":"Hola"] $line" || exit -1
+done

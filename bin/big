@@ -1,0 +1,7 @@
+if [ "$1" = "" ]; then
+	DIR="."
+else
+	DIR="$1"
+fi
+
+du -a "$DIR" 2>/dev/null | sort -nr | head -10

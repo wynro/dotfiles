@@ -1,0 +1,27 @@
+#!/bin/bash
+# Timestamp: <2016-09-27 - 19:32>
+# Autor: Guillermo Robles Gonzalez
+#
+# Sube los contenidos de la carpeta public_html local a Hendrix
+# Cuidado porque sustituye los contenidos sin avisar
+
+case "$1" in
+    "all")
+        scp -r ~/public_html "$HENDRIX":'~'
+        ssh "$HENDRIX" 'find "$HOME/public_html" -type f -name "*.log" -exec chmod 0666 {} \;'
+        ;;
+    "permits")
+        ssh "$HENDRIX" 'find "$HOME/public_html" -type f -name "*.log" -exec chmod 0666 {} \;'
+        ;;
+    "help")
+        # Opciones
+        # - all: carga los ficheros y modificar los permisos
+        # - permits: modifica los permisos de los logs del servidor
+        # - help: this
+        # - <nada>: subir los ficheros, no toca los permisos
+        echo -e "Opciones\n - load: carga los ficheros, no toca los permisos\n - permits: modifica los permisos de los ficheros log del servidor\n - help: this \n - <>: subir los ficheros y modificar los permisos"
+        ;;
+    *)
+        scp -r ~/public_html "$HENDRIX":'~'
+        ;;
+esac

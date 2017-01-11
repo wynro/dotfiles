@@ -1,0 +1,6 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Launches a Vim window with the X selection
+
+xsel | vim -

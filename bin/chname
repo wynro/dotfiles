@@ -1,0 +1,13 @@
+#!/bin/bash
+# Autor: Guillermo Robles
+#
+# Change filenames in batch
+
+if [ "$#" -ne 2 ]; then
+    echo -e "Incorrect argument number"
+fi
+
+for file in $1; do
+    name=$(echo "$file" | sed "$2")
+    mv "$file" "./$name"
+done

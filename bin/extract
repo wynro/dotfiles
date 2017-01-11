@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Adapted from: https://www.reddit.com/r/zsh/comments/5fwtn1/suggest_stuff_to_add_to_my_zshrc/danmd79/
+
+if [[ -z "$2" ]]; then
+    EXTRACT_DIRECTORY="."
+else
+    EXTRACT_DIRECTORY="$2"
+fi
+
+if [[ -z "$1" ]] ; then
+   echo -e "usage: \e[1;36mextract\e[1;0m <filename>"
+   echo -e "       Extract the file specified based on the extension"
+elif [[ -f "$1" ]] ; then
+    case "$1" in
+        *.tar.xz)   tar -Jxf "$1"  -C "$EXTRACT_DIRECTORY"  ;;
+        *.tar.bz2)  tar -jxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
+        *.tar.gz)   tar -zxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
+        *.bz2)      bunzip2 "$1"    ;;
+        *.gz)       gunzip "$1"     ;;
+        *.jar)      unzip "$1"      ;;
+        *.rar)      unrar x "$1"    ;;
+        *.tar)      tar -xvf "$1"  -C "$EXTRACT_DIRECTORY"  ;;
+        *.tbz2)     tar -jxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
+        *.tgz)      tar -zxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
+        *.zip)      unzip "$1"      ;;
+        *.Z)        uncompress "$1" ;;
+        *.7z)       7za e "$1"      ;;
+        *)          echo "Unable to extract '$1' :: Unknown extension"
+    esac
+else
+    echo "File ('$1') does not exist!"
+fi
