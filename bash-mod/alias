@@ -28,8 +28,6 @@ alias ugz="gunzip"
 alias ghistory="history | grep"
 
 # Games
-# Strike the earth!
-alias dw='$HOME/opt/df/df'
 alias h="hack"
 alias nh="nethack"
 
