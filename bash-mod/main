@@ -15,8 +15,6 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/alias"  # Alias
     # shellcheck source=/home/guillermo/.bash-mod/colors
     . "$HOME/.bash-mod/colors" # Colores
-    # shellcheck source=/home/guillermo/.bash-mod/rpi
-    . "$HOME/.bash-mod/rpi"    # Raspberry
     # shellcheck source=/home/guillermo/.bash-mod/emacs
     . "$HOME/.bash-mod/emacs"  # Emacs
     # shellcheck source=/home/guillermo/.bash-mod/prompt
