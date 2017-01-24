@@ -2,14 +2,6 @@
 
 EMACS_D="$HOME/.emacs.d"
 
-em () {
-    if [ "$1" = "" ]; then
-        emacsclient -c -a "" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
-    else
-        emacsclient -c -a "" "$@" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
-    fi
-}
-
 em_nw () {
     if [ "$1" = "" ]; then
         emacsclient -nw -c -a "" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
@@ -43,4 +35,4 @@ em_r () {
 
 alias dunnet="emacs -batch -l dunnet"
 
-export EDITOR=em
+export EDITOR="$HOME/bin/em"

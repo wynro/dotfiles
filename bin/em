@@ -1,0 +1,10 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Launch Emacs in client mode, logging its function
+
+if [ "$1" = "" ]; then
+    emacsclient -c -a "" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+else
+    emacsclient -c -a "" "$@" 1>/dev/null 2>"$HOME/.emacs.d/emacs.log" &
+fi
