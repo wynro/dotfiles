@@ -154,14 +154,14 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command /home/guillermo/bin/i3status_mine
+        status_command ~/bin/i3status_mine
         # status_command i3status
 }
 
 
 # My stuff
 # Change wallpaper
-exec feh --bg-scale /home/guillermo/Pictures/background.png
+exec feh --bg-scale "~/Pictures/background.png"
 
 # Add Compose Key
 exec setxkbmap -option compose:ralt
@@ -171,7 +171,7 @@ exec bluetooth off
 
 # Some random keybindings
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+m exec emacs
+bindsym $mod+m exec ~/bin/em
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+v exec vlc ~/Music/
 bindsym $mod+Shift+s exec sh -c 'xsel | espeak'
@@ -220,7 +220,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioMicMute exec /home/guillermo/bin/toggle_mic
+bindsym XF86AudioMicMute exec ~/bin/toggle_mic
 
 # Print screen
 bindsym Print exec ksnapshot
