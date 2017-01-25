@@ -9,7 +9,7 @@ REPO_PATH="$HOME/dotfiles"
 check_directory_and_create_link() {
     if [ ! -d "$HOME/$1" ]; then
         ln -s "$REPO_PATH/$2" "$HOME/$1" &&
-            echo "Link to '$HOME/$1' created"
+            echo "Link from '$REPO_PATH/$2' to '$HOME/$2' created"
     else
         echo "The directory $HOME/$1 already exists, link not created"
     fi
