@@ -76,3 +76,10 @@ check_file_and_create_link ".gitconfig" "gitconfig"
 
 # Feh background config file
 check_file_and_create_link ".fehbg" "fehbg"
+
+# Systemd units
+USER_UNITS='.config/systemd/user'
+mkdir -p "~/$USER_UNITS"
+for i in systemd-units/*; do
+  check_file_and_create_link "$USER_UNITS/$(basename $i)" "$i"
+done

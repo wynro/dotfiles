@@ -1,0 +1,14 @@
+[Unit]
+Description=Portainer container
+After=docker-gogs.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=True
+TimeoutStartSec=0
+# ExecStartPre=-/usr/bin/docker stop portainer
+ExecStart=/usr/bin/docker start portainer
+ExecStop=/usr/bin/docker stop portainer
+
+[Install]
+WantedBy=default.target

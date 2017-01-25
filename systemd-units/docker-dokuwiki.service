@@ -1,0 +1,14 @@
+[Unit]
+Description=Dokuwiki container
+After=docker-ns1.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=True
+TimeoutStartSec=0
+# ExecStartPre=-/usr/bin/docker stop wiki
+ExecStart=/usr/bin/docker start wiki
+ExecStop=/usr/bin/docker stop wiki
+
+[Install]
+WantedBy=default.target

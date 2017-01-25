@@ -1,0 +1,14 @@
+[Unit]
+Description=Gogs container
+After=docker-dokuwiki.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=True
+TimeoutStartSec=0
+# ExecStartPre=-/usr/bin/docker stop gogs
+ExecStart=/usr/bin/docker start gogs
+ExecStop=/usr/bin/docker stop gogs
+
+[Install]
+WantedBy=default.target
