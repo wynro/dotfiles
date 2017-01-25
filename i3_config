@@ -172,6 +172,7 @@ exec bluetooth off
 # Some random keybindings
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+m exec ~/bin/em
+bindsym $mod+Shift+m exec /usr/bin/emacs
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+v exec vlc ~/Music/
 bindsym $mod+Shift+s exec sh -c 'xsel | espeak'
