@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+"""
+Returns a random command's manpage
+Author: Guillermo Robles
+"""
+
+import commands
+import random
+import os
+
+def check_man(command):
+    """
+    Returns True if the specified command has a manpage, False
+    otherwise
+    """
+    output, _ = commands.getstatusoutput('/usr/bin/man ' + command)
+    return output == 0
+
+
+# Get command list
+_, coms = commands.getstatusoutput('/bin/bash -c "compgen -c"')
+
+# Get a random one, repeat until we find one with manpage
+man_exists = False
+while not man_exists:
+    command = random.choice(coms.split('\n'))
+    man_exists = check_man(command)
+
+# Show the manpage
+os.system("/usr/bin/man " + command)
