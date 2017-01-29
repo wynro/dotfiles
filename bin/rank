@@ -1,0 +1,10 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Order and rank the elements in a list
+
+if [ "$#" -gt 0 ]; then
+    sort | uniq -c | sort -nr | head $1
+else
+    sort | uniq -c | sort -nr
+fi
