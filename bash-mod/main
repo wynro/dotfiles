@@ -39,4 +39,5 @@ if [ -n "$MOD" ]; then
     export HISTCONTROL=ignoreboth # Evitar duplicados en la historia de BASH
     PROMPT_COMMAND='history -a' # Guardar el historial en cada ejecucion de comando
 
+    echo "You should try to read the manpage of one of these: $(random-man -s -n 3)"
 fi

@@ -19,27 +19,40 @@ def check_man(command):
     return output == 0
 
 
+def get_random_manpage(n):
+    """
+    Return a list of n commands with manpages
+    """
+    _, coms = commands.getstatusoutput('/bin/bash -c "compgen -c"')
+    mans_choosen = []
+    for i in range(0, n):
+        # Get a random one, repeat until we find one with manpage
+        man_exists = False
+        while not man_exists:
+            command = random.choice(coms.split('\n'))
+            man_exists = check_man(command)
+        mans_choosen.append(command)
+    return mans_choosen
+
+
 def main():
-    parser = OptionParser()
-    parser.add_option("-s", "--short", dest="short", default=False,
-                      action="store_true", metavar="short",
-                      help="If given, show only random command")
+    # TODO: convert this to argparse. Someday.
+    parser = OptionParser(description="Returns random manpages")
+    parser.add_option("-s", "--short", action="store_true",
+                      dest="short", default=False,
+                      help="returns only the manpages names")
+    parser.add_option("-n", "--number", dest="number", default=1,
+                      type="int",
+                      help="if in short mode, gives the number of " +
+                      " manpages given")
 
     (options, args) = parser.parse_args()
+
     # Get command list
-    _, coms = commands.getstatusoutput('/bin/bash -c "compgen -c"')
-
-    # Get a random one, repeat until we find one with manpage
-    man_exists = False
-    while not man_exists:
-        command = random.choice(coms.split('\n'))
-        man_exists = check_man(command)
-
-    # Show the manpage
     if options.short:
-        print(command)
+        print ', '.join(get_random_manpage(options.number))
     else:
-        os.selfystem("/usr/bin/man " + command)
+        os.system("/usr/bin/man " + get_random_manpage(1)[0])
 
 
 if __name__ == "__main__":
