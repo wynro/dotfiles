@@ -29,6 +29,20 @@ check_file_and_create_link() {
     fi
 }
 
+# Check if a given file exists in the $HOME, if not, create a hard
+# link from the given file
+# Parameters:
+#  - $1: File to search in $HOME
+#  - $2: Name of the substitute
+check_file_and_create_hard_link() {
+    if [ ! -f "$HOME/$1" ]; then
+        ln "$REPO_PATH/$2" "$HOME/$1" &&
+            echo "Link to '$HOME/$1' created"
+    else
+        echo "The file $HOME/$1 already exists, hard link not created"
+    fi
+}
+
 
 # Shell configuration
 check_file_and_create_link ".profile" "profile"
@@ -78,8 +92,8 @@ check_file_and_create_link ".gitconfig" "gitconfig"
 check_file_and_create_link ".fehbg" "fehbg"
 
 # Systemd units
-USER_UNITS='.config/systemd/user'
-mkdir -p "~/$USER_UNITS"
+USER_UNITS=".config/systemd/user"
+mkdir -p "$HOME/$USER_UNITS"
 for i in systemd-units/*; do
-  check_file_and_create_link "$USER_UNITS/$(basename $i)" "$i"
+    check_file_and_create_hard_link "$USER_UNITS/$(basename "$i")" "$i"
 done
