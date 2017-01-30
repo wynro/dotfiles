@@ -1,0 +1,12 @@
+[Unit]
+Description=F.lux for X
+
+[Service]
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xflux -l 41.64 -g -0.9
+# This is crap and I should fix it. Someday.
+ExecStop=/bin/kill -15 $(/usr/bin/pgrep xflux)
+
+[Install]
+WantedBy=default.target
