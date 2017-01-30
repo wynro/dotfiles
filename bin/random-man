@@ -7,6 +7,8 @@ Author: Guillermo Robles
 import commands
 import random
 import os
+from optparse import OptionParser
+
 
 def check_man(command):
     """
@@ -17,14 +19,28 @@ def check_man(command):
     return output == 0
 
 
-# Get command list
-_, coms = commands.getstatusoutput('/bin/bash -c "compgen -c"')
+def main():
+    parser = OptionParser()
+    parser.add_option("-s", "--short", dest="short", default=False,
+                      action="store_true", metavar="short",
+                      help="If given, show only random command")
 
-# Get a random one, repeat until we find one with manpage
-man_exists = False
-while not man_exists:
-    command = random.choice(coms.split('\n'))
-    man_exists = check_man(command)
+    (options, args) = parser.parse_args()
+    # Get command list
+    _, coms = commands.getstatusoutput('/bin/bash -c "compgen -c"')
 
-# Show the manpage
-os.system("/usr/bin/man " + command)
+    # Get a random one, repeat until we find one with manpage
+    man_exists = False
+    while not man_exists:
+        command = random.choice(coms.split('\n'))
+        man_exists = check_man(command)
+
+    # Show the manpage
+    if options.short:
+        print(command)
+    else:
+        os.selfystem("/usr/bin/man " + command)
+
+
+if __name__ == "__main__":
+    main()
