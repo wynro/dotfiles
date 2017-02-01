@@ -1,0 +1,15 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Get the package description of a given command
+
+COMMAND="$1"
+
+if ! which $COMMAND 1>/dev/null 2>&1; then
+    echo "The given argument \"$COMMAND\" is not a valid command"
+    exit 1
+fi
+
+command_route="$(which "$COMMAND")"
+package="$(dpkg -S "$command_route" | awk -F ':' '{print $1}')"
+apt-cache show "$package"
