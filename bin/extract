@@ -23,7 +23,7 @@ elif [[ -f "$1" ]] ; then
         *.tar)      tar -xvf "$1"  -C "$EXTRACT_DIRECTORY"  ;;
         *.tbz2)     tar -jxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
         *.tgz)      tar -zxvf "$1" -C "$EXTRACT_DIRECTORY"  ;;
-        *.zip)      unzip "$1"      ;;
+        *.zip)      unzip "$1"      -d "$EXTRACT_DIRECTORY"  ;;
         *.Z)        uncompress "$1" ;;
         *.7z)       7za e "$1"      ;;
         *)          echo "Unable to extract '$1' :: Unknown extension"
