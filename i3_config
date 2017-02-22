@@ -204,7 +204,7 @@ exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1
 
 exec --no-startup-id exec /usr/bin/xflux -l 41.64 -g -0.9 -k 3400
 
-# workspace 10 output VGA1
+workspace 10 output VGA1
 
 # exec xrandr | grep -q "VGA1 connected" && xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
 
