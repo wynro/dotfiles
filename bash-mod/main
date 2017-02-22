@@ -31,9 +31,7 @@ if [ -n "$MOD" ]; then
     # Adiciones al PATH y a otras variables
     # Directorio actual
     export PATH="$HOME/bin:$PATH"
-    # export PATH=".:$PATH"
     export PATH="$HOME/.cabal/bin:$PATH"
-    export PATH="$HOME/.gocode/bin:$PATH"
 
     # Otras variables interesantes
     export HISTCONTROL=ignoreboth # Evitar duplicados en la historia de BASH
