@@ -7,6 +7,6 @@ while read line; do
         echo "$line"
     else
         realname=`grep "^$username" "$HOME/.u/humans" | cut -d" " -f 2-`
-        echo "$line" | sed "s/$username/'$realname'/g"
+        echo "$line ($realname)"
     fi
 done
