@@ -43,8 +43,8 @@ def main():
                       help="returns only the manpages names")
     parser.add_option("-n", "--number", dest="number", default=1,
                       type="int",
-                      help="if in short mode, gives the number of " +
-                      " manpages given")
+                      help="if in short mode, returns the number " +
+                      "of manpages given")
 
     (options, args) = parser.parse_args()
 
