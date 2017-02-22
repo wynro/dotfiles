@@ -1,9 +1,18 @@
 #!/bin/bash
-alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --output "%(title)s.%(ext)s"'
+# General
 alias youtube-dl-list='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s"'
+
+# MP3 download
+alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --output "%(title)s.%(ext)s"'
 alias youtube-dl-mp3-list='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --extract-audio --audio-format mp3'
 alias youtube-dl-list-mp3='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --extract-audio --audio-format mp3'
+
+# MP4 download
 alias youtube-dl-mp4='youtube-dl --extract-audio --audio-format mp4 --output "%(title)s.%(ext)s"'
-alias youtube-dl-list='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s"'
 alias youtube-dl-mp4-list='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --extract-audio --audio-format mp4'
 alias youtube-dl-list-mp4='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --extract-audio --audio-format mp4'
+
+# AVI download
+alias youtube-dl-avi='youtube-dl --recode-video avi --output "%(title)s.%(ext)s"'
+alias youtube-dl-avi-list='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --recode-video avi'
+alias youtube-dl-list-avi='youtube-dl --autonumber-size 3 --output "%(autonumber)s - %(title)s.%(ext)s" --recode-video avi'
