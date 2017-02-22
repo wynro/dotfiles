@@ -97,3 +97,6 @@ mkdir -p "$HOME/$USER_UNITS"
 for i in systemd-units/*; do
     check_file_and_create_hard_link "$USER_UNITS/$(basename "$i")" "$i"
 done
+
+# X configuration
+check_file_and_create_link ".Xresources" "Xresources"
