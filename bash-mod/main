@@ -27,6 +27,8 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/opt-programs"
     # shellcheck source=go-stuff
     . "$HOME/.bash-mod/go-stuff"
+    # shellcheck source=juju
+    . "$HOME/.bash-mod/juju"
 
     # Adiciones al PATH y a otras variables
     # Directorio actual
