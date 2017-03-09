@@ -1,5 +1,4 @@
 #!/bin/bash
-alias skype=~/opt/skype/skype
 alias idea=~/opt/idea/bin/idea.sh
 alias nuclear='~/opt/nuclear-throne/nuclear-throne'
 alias eclipse-rcp='~/opt/eclipse-rcp/eclipse'
