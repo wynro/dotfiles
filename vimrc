@@ -37,3 +37,5 @@ au BufRead,BufNewFile *_spec.rb
 
 " Enable indentation matching for =>'s
 filetype plugin indent on
+
+nnoremap <F5> :make<CR>
