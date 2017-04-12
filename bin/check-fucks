@@ -4,5 +4,5 @@
 # Checks and reports the number of appearances of the word "fuck" in
 # the directory and all subdirectories
 
-number=$(grep -rci --exclude='.git/' 'fuck' | awk -F ":" '$2~/^[0-9]+$/ {sum += $2} END {print sum}')
+number=$(grep -rci --exclude='.git/' '[Ff][Uu][Cc][Kk]' | awk -F ":" '$2~/^[0-9]+$/ {sum += $2} END {print sum}')
 echo "This directory gives ${number} fucks."
