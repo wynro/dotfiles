@@ -4,3 +4,4 @@ alias nuclear='~/opt/nuclear-throne/nuclear-throne'
 alias eclipse-rcp='~/opt/eclipse-rcp/eclipse'
 # Strike the earth!
 alias dw='$HOME/opt/df/df'
+alias android-studio='$HOME/opt/android-studio/bin/studio.sh'
