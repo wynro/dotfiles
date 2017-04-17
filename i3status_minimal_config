@@ -1,0 +1,12 @@
+general {
+  output_format = "i3bar"
+  colors = true
+  color_separator = "#0000FF"
+  interval = 1
+}
+
+tztime local {
+  format = "%Y-%m-%d %H:%M:%S"
+}
+
+order = "tztime local"

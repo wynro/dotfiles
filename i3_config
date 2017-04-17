@@ -155,7 +155,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command ~/bin/i3status_mine
+        output LVDS1
         # status_command i3status
+}
+
+bar {
+        status_command i3status -c ~/.config/i3status/minimal_config
+        output VGA1
 }
 
 

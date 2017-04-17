@@ -82,6 +82,14 @@ if [ ! -f "$HOME/.config/i3status/config" ]; then
 else
     echo "The file $HOME/.config/i3status/config already exists, link not created"
 fi
+if [ ! -f "$HOME/.config/i3status/minimal_config" ]; then
+    ln -s "$REPO_PATH/i3status_minimal_config" "$HOME/.config/i3status/minimal_config" &&
+        echo "Link to '$HOME/.config/i3status/minimal_config' created"
+else
+    echo "The file $HOME/.config/i3status/minimal_config already exists, link not created"
+fi
+
+
 # dm config file
 check_file_and_create_link ".dmrc" "dmrc"
 
