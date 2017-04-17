@@ -29,6 +29,8 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/go-stuff"
     # shellcheck source=juju
     . "$HOME/.bash-mod/juju"
+    # shellcheck source=latex
+    . "$HOME/.bash-mod/latex"
 
     # Adiciones al PATH y a otras variables
     # Directorio actual
