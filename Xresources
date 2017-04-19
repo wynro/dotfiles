@@ -1,2 +1,4 @@
 # Confifure xterm with black background (hacker AF)
 XTerm*reverseVideo: on
+# Remove tool bar from Emacs
+Emacs*toolBar: 0
