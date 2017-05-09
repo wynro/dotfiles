@@ -212,8 +212,6 @@ exec --no-startup-id exec /usr/bin/xflux -l 41.64 -g -0.9 -k 3400
 
 workspace 10 output VGA1
 
-# exec xrandr | grep -q "VGA1 connected" && xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1
-
 # Activate multimedia keys
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
