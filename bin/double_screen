@@ -1,5 +1,9 @@
 #!/bin/sh
 
-xrandr --output VGA1 --right-of LVDS1 --auto
+if [ "$1" = "-l" ]; then
+    xrandr --output VGA1 --left-of LVDS1 --auto
+else
+    xrandr --output VGA1 --right-of LVDS1 --auto
+fi
 xrandr --output LVDS1 --auto --primary
 ~/.fehbg
