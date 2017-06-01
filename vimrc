@@ -1,9 +1,6 @@
 " turn off auto adding comments on next line
 " so you can cut and paste reliably
 " http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-" Thanks, CIA
-cmap w!! w !sudo tee % > /dev/null<CR>
 set fo=tcq
 set nocompatible
 set modeline
