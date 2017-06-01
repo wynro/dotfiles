@@ -108,3 +108,6 @@ done
 
 # X configuration
 check_file_and_create_link ".Xresources" "Xresources"
+
+# Quilt config
+check_file_and_create_link ".quiltrc-dpkg" "quiltrc-dpkg"

@@ -31,6 +31,8 @@ if [ -n "$MOD" ]; then
     . "$HOME/.bash-mod/juju"
     # shellcheck source=latex
     . "$HOME/.bash-mod/latex"
+    # shellcheck source=packaging
+    . "$HOME/.bash-mod/packaging"
 
     alias sudo='sudo '
 
