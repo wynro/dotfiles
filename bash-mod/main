@@ -32,6 +32,8 @@ if [ -n "$MOD" ]; then
     # shellcheck source=latex
     . "$HOME/.bash-mod/latex"
 
+    alias sudo='sudo '
+
     # Adiciones al PATH y a otras variables
     # Directorio actual
     export PATH="$HOME/bin:$PATH"
