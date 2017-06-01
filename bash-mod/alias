@@ -102,9 +102,9 @@ nd() {
         DIR="$1"
     fi
     if [ "$DESKTOP_SESSION" = "mate" ]; then
-        caja "$DIR"
+        caja "$DIR" &>/dev/null &
     else
-        nautilus "$DIR"
+        nautilus "$DIR" &>/dev/null &
     fi
 }
 
