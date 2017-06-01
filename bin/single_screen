@@ -3,3 +3,4 @@
 xrandr --output VGA1 --off
 xrandr --output LVDS1 --auto --primary
 ~/.fehbg
+i3-msg restart

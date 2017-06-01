@@ -7,3 +7,4 @@ else
 fi
 xrandr --output LVDS1 --auto --primary
 ~/.fehbg
+i3-msg restart
