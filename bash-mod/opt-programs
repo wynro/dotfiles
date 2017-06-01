@@ -5,3 +5,4 @@ alias eclipse-rcp='~/opt/eclipse-rcp/eclipse'
 # Strike the earth!
 alias dw='$HOME/opt/df/df'
 alias android-studio='$HOME/opt/android-studio/bin/studio.sh'
+alias sonar-scanner='$HOME/opt/sonar-scanner/bin/sonar-scanner'
