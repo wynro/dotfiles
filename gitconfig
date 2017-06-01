@@ -19,7 +19,10 @@
 	co = commit
 	cob = checkout -b
 	com = commit -m
+	d = diff
+	dc = diff --cached
 	ec = config --global -e
+	famend = commit --amend --no-edit
 	good = bisect good
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ls-ignored = ls-files --others -i --exclude-standard
