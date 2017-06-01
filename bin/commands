@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Shows all the name of executable commands, aliases or functions
+
+compgen -A alias -A builtin -A command -A enabled -A function
