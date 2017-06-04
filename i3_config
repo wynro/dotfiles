@@ -210,6 +210,9 @@ exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1
 
 exec --no-startup-id exec /usr/bin/xflux -l 41.64 -g -0.9 -k 3400
 
+floating_maximum_size 1366 x 768
+floating_minimum_size -1 x -1
+
 workspace 10 output VGA1
 
 # Activate multimedia keys
