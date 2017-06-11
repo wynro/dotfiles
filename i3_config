@@ -202,12 +202,17 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+w mode "$mode_system"
 
+# Assign stuff to workspaces
+assign [class="^Firefox$"] 2
+assign [class="^Emacs$"] 3
+assign [class="^Hexchat$"] 4
+
 # Open stuff in workspaces on boot
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 1'
-exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/emacs; workspace 1'
-exec --no-startup-id i3-msg 'workspace 4; exec /usr/bin/hexchat; workspace 1'
-exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1'
-exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; workspace 1'
+exec /usr/bin/firefox
+exec /usr/bin/emacsclient -c -a ""
+exec /usr/bin/hexchat
+exec i3-sensible-terminal
+exec i3-sensible-terminal
 
 exec --no-startup-id exec /usr/bin/xflux -l 41.64 -g -0.9 -k 3400
 
