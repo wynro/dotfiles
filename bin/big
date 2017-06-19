@@ -1,3 +1,8 @@
+#!/bin/bash
+# Author: Guillermo Robles
+#
+# Gives the 10 biggest files/directories in a directory
+
 if [ "$1" = "" ]; then
 	DIR="."
 else
