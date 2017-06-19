@@ -186,6 +186,8 @@ bindsym $mod+Shift+s exec sh -c 'xsel | espeak'
 # This substitutes the original $mod+Shift+e bind (to exit XSession)
 bindsym $mod+Shift+e exec i3-sensible-terminal ~/bin/edit-selection
 
+bindsym XF86Display exec ~/bin/toggle_screen
+
 # Create exit keybindings
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

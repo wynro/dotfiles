@@ -1,0 +1,27 @@
+#!/bin/sh
+
+is_monitor_active () {
+    xrandr | grep "${1} connected" | sed 's/.*(.*)//' | grep -q 'mm'
+}
+
+if is_monitor_active "VGA1" && is_monitor_active "LVDS1"
+then
+    echo "Both are active"
+    xrandr --output VGA1 --off
+    xrandr --output LVDS1 --auto --primary
+    ~/.fehbg
+    i3-msg restart
+elif is_monitor_active "LVDS1"
+then
+    echo "Only internal is active"
+    xrandr --output LVDS1 --auto --primary
+    xrandr --output VGA1 --right-of LVDS1 --auto
+    ~/.fehbg
+    i3-msg restart
+else
+    # Just in case, turn on internal
+    xrandr --output LVDS1 --auto --primary
+    xrandr --output VGA1 --off
+    ~/.fehbg
+    i3-msg restart
+fi
