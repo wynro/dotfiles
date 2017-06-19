@@ -104,6 +104,8 @@ USER_UNITS=".config/systemd/user"
 mkdir -p "$HOME/$USER_UNITS"
 for i in systemd-units/*; do
     check_file_and_create_hard_link "$USER_UNITS/$(basename "$i")" "$i"
+    echo "Activating $(basename "$i") unit"
+    systemctl --user enable "$(basename "$i")"
 done
 
 # X configuration
