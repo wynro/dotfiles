@@ -1,9 +1,0 @@
-#!/bin/bash
-if git status >/dev/null 2>&1; then
-  PREV_BRANCH=$(git branch | grep '^\*' | sed 's/\* //')
-  git checkout production
-  git merge "${PREV_BRANCH}"
-  git checkout ${PREV_BRANCH}
-else
-  echo "fatal: Not a git repository (or any of the parent directories): .git"
-fi
