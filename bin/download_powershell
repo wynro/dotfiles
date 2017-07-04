@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+"""
+Download last Powershell package from GitHub
+
+Author: Guillermo Robles
+"""
+
+import json
+import urllib2
+import re
+
+URL = 'https://api.github.com/repos/PowerShell/PowerShell/releases/latest'
+for i in json.load(urllib2.urlopen(URL))['assets']:
+    if(re.match('powershell.*ubuntu.*16\.04.*\.deb', i['name'])):
+        print("Downloading " + i['name'] + " package")
+        package = urllib2.urlopen(i['browser_download_url'])
+        with open(i['name'], 'wb') as output:
+            output.write(package.read())
