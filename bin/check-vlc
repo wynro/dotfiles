@@ -1,0 +1,14 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Check if VLC is running, if not, launch it in the current workspace
+
+PROGRAM_NAME="vlc"
+MUSIC_DIR="$HOME/Music/"
+# Oneliner from: https://serverfault.com/questions/264754/how-do-i-list-the-absolute-path-of-running-processes
+NUM_INSTANCES="$(for pid in `ps auxwww | grep ${PROGRAM_NAME} | grep -v grep | awk '{print $2}'`; do ls -l /proc/$pid/exe; done | grep $(which ${PROGRAM_NAME}) | wc -l)"
+
+if [ "${NUM_INSTANCES}" -lt 1 ]
+then
+    exec vlc "${MUSIC_DIR}"
+fi
