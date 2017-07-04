@@ -243,3 +243,7 @@ bindsym XF86AudioMicMute exec ~/bin/toggle_mic
 
 # Print screen
 bindsym Print exec ksnapshot
+
+# Presentation stuff
+for_window [class="^Pdfpc$" window_role="presentation"] fullscreen enable
+assign [class="^Pdfpc$" window_role="presentation"] 10
