@@ -1,0 +1,36 @@
+#!/bin/bash
+# Author: Guillermo Robles
+#
+# Completion functions for my commands
+
+_commands () {
+    COMPREPLY=()
+    return 0
+}
+complete -F _commands commands
+
+_double_screen () {
+    local cur prev
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    # Script valid options
+    opts='-l'
+
+    case "${prev}" in
+        "double_screen")
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        *)
+            COMPREPLY=()
+            return 0
+            ;;
+    esac
+}
+complete -F _double_screen double_screen
+
+_single_screen () {
+    COMPREPLY=()
+    return 0
+}
+complete -F _single-screen single-screen
