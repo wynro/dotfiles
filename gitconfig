@@ -16,8 +16,8 @@
 	b = branch
 	bad = bisect bad
 	ch = checkout
+	chb = checkout -b
 	co = commit
-	cob = checkout -b
 	com = commit -m
 	d = diff
 	dc = diff --cached
