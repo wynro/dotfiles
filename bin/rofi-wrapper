@@ -1,0 +1,10 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Opens rofi with the adequate options
+
+# Valid combi-mode:
+# ssh: all SSH targets in ~/.ssh/config
+# window: current active windows
+# drun: programs with freedesktop.org's Desktop Entries
+rofi -modi combi -combi-modi "drun,ssh" -show combi
