@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Author: Guillermo Robles
 #
 # Checks and reports the number of appearances of the word "fuck" in
