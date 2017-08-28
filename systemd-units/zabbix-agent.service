@@ -1,0 +1,16 @@
+[Unit]
+Description=Zabbix Agent
+After=syslog.target network.target
+Documentation=man:zabbix_agentd
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/zabbix_agentd -c /etc/zabbix/zabbix_agentd.conf
+Restart=on-abnormal
+PIDFile=/var/run/zabbix/zabbix_agentd.pid
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
