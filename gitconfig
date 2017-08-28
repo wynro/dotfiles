@@ -36,8 +36,8 @@
 	unstage = reset HEAD --
 	visual = !gitk
 	gui = !gitk
-	submodule-init=submodule update --init --recursive --remote
-	submodule-update=submodule update --recursive --remote
+	submodule-init = submodule update --init --recursive --remote
+	submodule-update = submodule update --recursive --remote
 [branch]
 	autosetuprebase = always
 	autosetupmerge = always
