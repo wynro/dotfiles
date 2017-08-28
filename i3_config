@@ -186,6 +186,8 @@ bindsym $mod+Shift+m exec /usr/bin/emacs
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+v exec vlc ~/Music/
 bindsym $mod+Shift+s exec sh -c 'xsel | espeak'
+bindsym $mod+p exec ~/bin/toggle_printer
+
 # This substitutes the original $mod+Shift+e bind (to exit XSession)
 bindsym $mod+Shift+e exec i3-sensible-terminal ~/bin/edit-selection
 
