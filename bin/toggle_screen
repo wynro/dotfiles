@@ -15,7 +15,7 @@ elif is_monitor_active "LVDS1"
 then
     echo "Only internal is active"
     xrandr --output LVDS1 --auto --primary
-    xrandr --output VGA1 --right-of LVDS1 --auto
+    xrandr --output VGA1 --left-of LVDS1 --auto
     ~/.fehbg
     i3-msg restart
 else
