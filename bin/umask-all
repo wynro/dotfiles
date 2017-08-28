@@ -1,0 +1,14 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Apply the umask to all files and directories
+
+files_umask="664"
+directories_umask="775"
+
+# Set for files
+find . -type f -exec chmod "${files_umask}" {} \;
+
+# Set for directories
+find . -type d -exec chmod "${directories_umask}" {} \;
+
