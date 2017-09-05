@@ -10,5 +10,5 @@ NUM_INSTANCES="$(for pid in `ps auxwww | grep ${PROGRAM_NAME} | grep -v grep | a
 
 if [ "${NUM_INSTANCES}" -lt 1 ]
 then
-    exec vlc "${MUSIC_DIR}"
+    exec "${PROGRAM_NAME}" "${MUSIC_DIR}"
 fi
