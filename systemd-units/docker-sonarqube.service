@@ -1,6 +1,6 @@
 [Unit]
 Description=SonrQube container
-After=docker-gogs.service
+After=docker-ns1.service
 
 [Service]
 Type=oneshot

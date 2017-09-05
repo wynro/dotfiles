@@ -1,6 +1,6 @@
 [Unit]
 Description=Gogs container
-After=docker-dokuwiki.service
+After=docker-ns1.service
 
 [Service]
 Type=oneshot
