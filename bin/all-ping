@@ -1,0 +1,38 @@
+#!/bin/sh
+# Author: Guillermo Robles
+#
+# Pings all the hosts in a /24 network, returning those who answer
+
+set -u                          # Errors on unset variables usage
+
+if [ $# -gt 0 ]
+then
+    NETMASK="$1"
+else
+    NETMASK="192.168.1."
+fi
+
+# Gets the MAC of an IP via ARP
+#
+# $1: IP
+get_mac () {
+    arp -a "${1}" | sed 's/.*at \([0123456789abcdef:]\{17\}\) .*/\1/' | tr 'a-z' 'A-Z'
+}
+
+# Gets the hostname of an IP
+#
+# $1: IP
+get_host () {
+    dig +short -x "${1}" | sed 's/\.$//'
+}
+
+for i in $(seq 1 254); do
+    ping -q -c 1 "${NETMASK}${i}" >/dev/null 2>&1 &&
+        echo "${NETMASK}${i}" &
+done | sort -n |
+    while read ip; do
+        mac=$(get_mac "${ip}")
+        host=$(get_host "${ip}")
+        echo "${ip} ${mac} ${host}"
+    done
+wait
