@@ -1,0 +1,21 @@
+#!/bin/bash
+# Author: Guillermo Robles
+#
+# Set up an alarm for the given time
+
+TONE="$HOME/Music/tone.mp3"
+MUSIC_PLAYER="/usr/bin/vlc"
+
+set -u                          # Errors on unset variables usage
+
+if [ "$#" -ne "1" ]
+then
+    echo "Usage:"
+    echo "       $(basename $0) <time>"
+    exit 1
+fi
+
+at "${1}" &>/dev/null <<EOF
+export DISPLAY=:0
+$MUSIC_PLAYER $TONE
+EOF
