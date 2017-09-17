@@ -1,4 +1,3 @@
-#.*#
 test/
 toadd/
 vim/.netrwhist
@@ -7,3 +6,4 @@ bin/udisk01
 bin/upload
 bin/webcomics
 bash-mod/secret
+**.swp
