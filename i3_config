@@ -252,3 +252,6 @@ bindsym Print exec ksnapshot
 # Presentation stuff
 for_window [class="^Pdfpc$" window_role="presentation"] fullscreen enable
 assign [class="^Pdfpc$" window_role="presentation"] 10
+
+# VLC no fullscreen
+for_window [class="vlc"] fullscreen disable
