@@ -1,5 +1,5 @@
 [Unit]
-Description=SonrQube container
+Description=SonarQube container
 
 [Service]
 Type=oneshot
