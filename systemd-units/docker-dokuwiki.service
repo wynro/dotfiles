@@ -1,6 +1,5 @@
 [Unit]
 Description=Dokuwiki container
-After=docker-ns1.service
 
 [Service]
 Type=oneshot

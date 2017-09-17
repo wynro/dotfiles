@@ -1,6 +1,5 @@
 [Unit]
 Description=Portainer container
-After=docker-ns1.service
 
 [Service]
 Type=oneshot
