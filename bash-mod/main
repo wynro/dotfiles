@@ -36,6 +36,9 @@ if [ -n "$MOD" ]; then
 
     alias sudo='sudo '
 
+    # This is stupid
+    export LESSCHARSET="utf-8"
+
     # Adiciones al PATH y a otras variables
     # Directorio actual
     export PATH="$HOME/bin:$PATH"
