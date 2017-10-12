@@ -39,6 +39,9 @@ if [ -n "$MOD" ]; then
     # This is stupid
     export LESSCHARSET="utf-8"
 
+    # Set editing-mode (Keybindings) to Emacs style
+    set editing-mode emacs
+
     # Adiciones al PATH y a otras variables
     # Directorio actual
     export PATH="$HOME/bin:$PATH"
