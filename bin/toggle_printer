@@ -5,17 +5,18 @@
 
 set -u                          # Errors on unset variables usage
 
+TERMINAL="terminator -e"
 if systemctl status cups.service | grep -q 'Active: inactive'
 then
     # CUPS is off
-    terminator -e 'echo "sudo systemctl start cups.service";\
                    sudo systemctl start cups.service'
     notify-send -i /usr/share/icons/Adwaita/48x48/devices/printer.png\
                 'Printer On' 'CUPS service turned on'
+    ${TERMINAL} 'echo "sudo systemctl start cups.service";\
 else
     # CUPS is on
-    terminator -e 'echo "sudo systemctl stop cups.service";\
                    sudo systemctl stop cups.service'
     notify-send -i /usr/share/icons/Adwaita/48x48/devices/printer.png\
                 'Printer Off' 'CUPS service turned off'
+    ${TERMINAL} 'echo "sudo systemctl stop cups.service";\
 fi
