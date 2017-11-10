@@ -258,3 +258,6 @@ for_window [class="vlc"] fullscreen disable
 
 # When I have to scan around 200 pages
 bindsym $mod+o exec ~/bin/scan_four_pages
+
+# Add "Search" keybinding to VLC
+bindsym $mod+Control+s exec sh -c 'xdotool mousemove --sync 1250 50 click 1 mousemove --sync restore'
