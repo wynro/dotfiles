@@ -1,0 +1,52 @@
+#!/bin/bash
+# Author: Guillermo Robles
+#
+# Scan a double page in Simple Scan, expecting the user to turn it around
+
+set -e                          # Exit in case of errors (prevent error snowballing)
+
+# New file
+xdotool mousemove --sync 235 50 click 1
+
+# Press the scan button
+xdotool mousemove --sync 110 50 click 1
+
+# Move to the middle and right click
+xdotool mousemove --sync 600 330 click 3
+sleep 0.5
+
+# Select the adequate Crop option
+xdotool mousemove --sync 700 400
+sleep 1.5
+xdotool mousemove --sync 825 430 click 1
+
+# Move to the middle
+xdotool mousemove --sync 600 330
+
+# Move the A4 cropping to its correct position
+xdotool mousedown 1
+sleep 1
+xdotool mousemove_relative --sync -- -200 0
+sleep 1
+xdotool mouseup 1
+
+
+for i in $(seq 3); do
+    # Wait for the scan and user to turn the page around (30 seconds for the scan + 10 for the user)
+    for i in `seq 36 -1 1`; do
+        notify-send -t 950 'Time left' "$i seconds remaining"
+        sleep 1
+    done
+
+    # Press the scan button again
+    xdotool mousemove --sync 110 50 click 1
+done
+
+# Wait for the scan and user to turn the page around (30 seconds for the scan)
+for i in `seq 30 -1 1`; do
+    notify-send -t 950 'Time left' "$i seconds remaining"
+    sleep 1
+done
+
+# Press the save button
+xdotool mousemove --sync 200 50 click 1

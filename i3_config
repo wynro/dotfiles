@@ -255,3 +255,6 @@ assign [class="^Pdfpc$" window_role="presentation"] 10
 
 # VLC no fullscreen
 for_window [class="vlc"] fullscreen disable
+
+# When I have to scan around 200 pages
+bindsym $mod+o exec ~/bin/scan_four_pages
